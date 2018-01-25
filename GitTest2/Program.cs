@@ -12,12 +12,17 @@ namespace GitTest2
         {
             Console.WriteLine("I have a number between 0 and 100....so guess it!");
             Random randNumGen = new Random();
-            int randNum = randNumGen.Next(0, 100);
+            int start, end;
+            Console.WriteLine("Starting number:");
+            start = int.Parse(Console.ReadLine());
+            Console.WriteLine("Ending number:");
+            end = int.Parse(Console.ReadLine());
+            int randNum = randNumGen.Next(start, end);
             int userGuess = 0;
             bool correct = false;
-            while(correct == false)
+            int guesses = 0;
+            while (correct == false)
             {
-                int guesses = 0;
                 Console.WriteLine("Enter your number");
                 int guess;
                 guess = int.Parse(Console.ReadLine());
@@ -31,12 +36,12 @@ namespace GitTest2
                 if(guess > randNum)
                 {
                     Console.WriteLine("Your guess is too high!");
-                    guesses++;
+                    guesses = guesses + 1;
                 }
                 else
                 {
                     Console.WriteLine("Your guess is too low!");
-                    guesses++;
+                    guesses = guesses + 1;
                 }
             }
 
